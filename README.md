@@ -17,7 +17,9 @@ Deze app toont een Hello World van frontend en backend én de realtime prijs van
 2. Pas IP addressen aan.
 3. Pas folder structuur aan.
 4. ga naar de back/front-end directory en doe `npm install`
-
+5. cd backend && docker compose up -d --build
+6. cd ../frontend && docker compose up -d --build
+7. cd ../database && docker compose up -d
 ## Structuur
 
 ```bash
