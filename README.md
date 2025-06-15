@@ -24,9 +24,16 @@ Deze app toont een Hello World van frontend en backend én de realtime prijs van
 crypto/
 ├── README.md
 ├── .gitignore
-├── frontend/
+├── config/
+│   ├── express-docker/
+│   │   └── docker-compose.yml
+│   ├── postgresql/
+│   │   └── docker-compose.yml
+│   └── react-docker/
+│       └── docker-compose.yml
+├── express-docker/
+│   ├── src/
 │   ├── Dockerfile
-│   ├── docker-compose.yml
 │   ├── package.json
 │   ├── package-lock.json
 │   └── src/
