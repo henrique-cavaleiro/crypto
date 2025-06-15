@@ -13,7 +13,7 @@ Deze app toont een Hello World van frontend en backend én de realtime prijs van
 - Docker & Docker Compose
 
 ## Installatie
-1. Clone deze repository: https://github.com/henrique-cavaleiro/crypto.git
+1. Clone deze repository: `git clone https://github.com/henrique-cavaleiro/crypto.git`
 2. Pas IP addressen aan.
 3. Pas folder structuur aan.
 4. ga naar de back/front-end directory en doe `npm install`
