@@ -14,3 +14,5 @@ Deze app toont een Hello World van frontend en backend én de realtime prijs van
 
 ## Installatie
 1. Clone deze repository:
+2. Pas IP addressen aan.
+3. Pas folder structuur aan.
