@@ -17,3 +17,30 @@ Deze app toont een Hello World van frontend en backend én de realtime prijs van
 2. Pas IP addressen aan.
 3. Pas folder structuur aan.
 4. ga naar de back/front-end directory en doe `npm install`
+
+## Structuur
+
+```bash
+crypto/
+├── README.md
+├── .gitignore
+├── frontend/
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   ├── package.json
+│   ├── package-lock.json
+│   └── src/
+│       ├── App.js
+│       └── components/
+│           ├── Portfolio.js
+│           └── Examen.js
+├── backend/
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── .env
+│   └── server.js
+└── database/
+    └── docker-compose.yml
+```
