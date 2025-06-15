@@ -1,1 +1,16 @@
 # crypto
+
+## Gemaakt door
+Henrique Cavaleiro – 6DATA
+
+## Beschrijving
+Deze app toont een Hello World van frontend en backend én de realtime prijs van Bitcoin (BTC/USD) via de Coinbase API.
+
+## Technologieën
+- Frontend: React.js
+- Backend: Express.js + Node.js
+- Database: PostgreSQL (voor uitbreiding)
+- Docker & Docker Compose
+
+## Installatie
+1. Clone deze repository:
