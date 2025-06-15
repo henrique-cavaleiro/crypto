@@ -68,11 +68,11 @@ docker-compose up -d
 
 ### Stap 5: Controleer de werking van de applicatie
 
-* **Frontend**: Open de browser en ga naar [http://localhost:3000](http://localhost:3000) om de applicatie te zien.
+* **Frontend**: Open de browser en ga naar [http://IP-FRONTEND:3000](http://IP-FRONTEND:3000) om de applicatie te zien.
 * **Backend API**:
 
-  * **Hello World route**: [http://localhost:3500/api/hello](http://localhost:3500/api/hello)
-  * **Realtime BTC prijs**: [http://localhost:3500/api/btc](http://localhost:3500/api/btc)
+  * **Hello World route**: [http://IP-BACKEND:3500/api/hello](http://IP-BACKEND:3500/api/hello)
+  * **Realtime BTC prijs**: [http://IP-BACKEND:3500/api/btc](http://IP-BACKEND:3500/api/btc)
 
 ## 4. **Structuur van de Applicatie**
 
@@ -134,5 +134,3 @@ Deze applicatie is bedoeld voor:
 * **Studenten** die hun kennis van **webtechnologieën** en **blockchain** willen vergroten.
 
 ---
-
-Met deze handleiding zou de gebruiker eenvoudig moeten kunnen begrijpen hoe de applicatie werkt en hoe deze lokaal op hun machine te installeren is. Als je nog meer specifieke instructies nodig hebt, zoals voor de database of extra configuraties, kan ik die ook toevoegen.
