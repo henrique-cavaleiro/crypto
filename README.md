@@ -62,7 +62,7 @@ docker-compose up -d --build
 * **Database container (indien van toepassing)**:
 
 ```bash
-cd ../database
+cd ../postgresql
 docker-compose up -d
 ```
 
