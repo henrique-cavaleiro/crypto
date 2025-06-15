@@ -33,21 +33,37 @@ crypto/
 │       └── docker-compose.yml
 ├── express-docker/
 │   ├── src/
+│   │   ├── cryptoAPI.js
+│   │   └── db.js
 │   ├── Dockerfile
 │   ├── package.json
 │   ├── package-lock.json
-│   └── src/
-│       ├── App.js
-│       └── components/
-│           ├── Portfolio.js
-│           └── Examen.js
-├── backend/
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── .env
 │   └── server.js
-└── database/
-    └── docker-compose.yml
+└── react-docker/
+    └── frontend/
+        ├── public/
+        │   ├── favicon.ico
+        │   ├── index.html
+        │   ├── logo192.png
+        │   ├── logo512.png
+        │   ├── manifest.json
+        │   └── robots.txt
+        ├── src/
+        │   ├── components/
+        │   │   ├── CryptoChart.js
+        │   │   ├── Portfolio.js
+        │   │   └── examen.js
+        │   ├── App.css
+        │   ├── App.js
+        │   ├── App.test.js
+        │   ├── index.css
+        │   ├── index.js
+        │   ├── logo.svg
+        │   ├── reportWebVitals.js
+        │   └── setupTests.js
+        ├── Dockerfile
+        ├── READ.ME
+        ├── package.json
+        └── package-lock.json
+
 ```
