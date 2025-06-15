@@ -1,0 +1,34 @@
+# Use postgres/example user/password credentials
+services:
+  db:
+    image: postgres
+    # set shared memory limit when using docker-compose
+    shm_size: 256mb
+    # or set shared memory limit when deploy via swarm stack
+    # ports:
+    #   - 5432:5432
+    volumes:
+      - /home/student/data/postgresql/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: student
+    networks:
+      # proxy:
+      macvlan5:
+        ipv4_address: 192.168.5.189  # Static IP on the macvlan network
+    restart: unless-stopped
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 8050:8080
+    networks:
+      # proxy:
+      macvlan5:
+        ipv4_address: 192.168.5.190  # Static IP on the macvlan network
+
+networks:
+  proxy:
+    external: true
+  macvlan5:
+    external: true

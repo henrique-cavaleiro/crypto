@@ -1,0 +1,23 @@
+services:
+  frontend:
+    image: test-react:latest
+    build:
+      context: /home/student/data/react-docker/frontend
+      dockerfile: Dockerfile  # Specify the correct Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - /home/student/data/react-docker/frontend/src:/react-app/src  # Mount only the source code
+      - /home/student/data/react-docker/frontend/public:/react-app/public  # Mount public assets
+      - /home/student/data/react-docker/frontend/package.json:/react-app/package.json  # Ensure package.json is available
+      - /home/student/data/react-docker/frontend/package-lock.json:/react-app/package-lock.json  # Ensure package-lock.json is available
+      - /react-app/node_modules  # Prevents overwriting node_modules 
+    environment:
+      - WATCHPACK_POLLING=true
+    networks:
+      - proxy
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external: true

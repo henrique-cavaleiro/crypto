@@ -1,0 +1,28 @@
+services:
+  express-app:
+    image: express-macvlan
+    container_name: express-docker-macvlan
+    build:
+      context: /home/student/data/express-docker  # Correct path to Dockerfile
+    volumes:
+      - /home/student/data/express-docker:/express-app  # Mount the local code directory into the container
+      - /express-app/node_modules  # Prevents node_modules from being overwritten
+    ports:
+      - "3500:3500"  # Expose port 3500 on the container to port 3500 on the host
+    environment:
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+    env_file:
+      - .env  # Use environment variables from the .env file
+    networks:
+      macvlan5:
+        ipv4_address: 192.168.5.186  # Static IP on the macvlan network
+    restart: unless-stopped
+    command: nodemon server.js  # Use nodemon for hot reloading
+
+networks:
+  macvlan5:
+    external: true
