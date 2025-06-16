@@ -26,7 +26,7 @@ app.get("/api/prices", async (req, res) => {
         const currency = req.query.currency || "EUR";
         const prices = await fetchCryptoPrices(currency);
 
-        // Ensure lookup values exist
+        // Ensure lookup values exist           //examen
         await pool.query(
             `INSERT INTO symbols (code) VALUES ($1), ($2), ($3)  ON CONFLICT DO NOTHING`,
             ['BTC', 'ETH', 'DOGE']
@@ -36,13 +36,13 @@ app.get("/api/prices", async (req, res) => {
             [currency]
         );
 
-        // Insert prices into new table
+        // Insert prices into new table         //examen
         await pool.query(`
             INSERT INTO crypto_prices (symbol_code, currency_code, price, timestamp)
             VALUES 
                 ('BTC', $1, $2, NOW()),
                 ('ETH', $1, $3, NOW()),
-                ('DOGE', $1, $4, NOW())
+                ('DOGE', $1, $4, NOW()) 
         `, [currency, prices.BTC, prices.ETH, prices.DOGE]);
 
         res.json(prices);
