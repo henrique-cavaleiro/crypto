@@ -113,7 +113,7 @@ crypto/
         │   ├── components/
         │   │   ├── CryptoChart.js
         │   │   ├── Portfolio.js
-        │   │   └── examen.js
+        │   │   └── examen-voorbereiding.js
         │   ├── App.css
         │   ├── App.js
         │   ├── App.test.js
