@@ -7,7 +7,7 @@ const Portfolio = () => {
   const [portfolio, setPortfolio] = useState([
     { symbol: "BTC", amount: 0.1 },
     { symbol: "ETH", amount: 2 },
-    { symbol: "DOGE", amount: 0.5 },
+    { symbol: "DOGE", amount: 0.5 },  // examen
     
   ]);
 
