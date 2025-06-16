@@ -45,7 +45,7 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
     ],
   });
 
-  const [dogeChartData, setDogeChartData] = useState({
+  const [dogeChartData, setDogeChartData] = useState({        // examen
     labels: [],
     datasets: [
       {
@@ -86,7 +86,7 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
           ],
         });
 
-        setDogeChartData({
+        setDogeChartData({        // examen
           labels: [],
           datasets: [
             {
@@ -97,6 +97,7 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
             },
           ],
         });
+        
         const res = await fetch(`http://192.168.5.186:3500/api/history?currency=${currency}`);
         const data = await res.json();
 
@@ -104,8 +105,8 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
         const btcData = [];
         const ethLabels = [];
         const ethData = [];
-        const dogeLabels = [];
-        const dogeData = [];
+        const dogeLabels = [];      // examen
+        const dogeData = [];        // examen
 
         data.reverse().forEach((entry) => {
           const timeLabel = formatTime(new Date(entry.timestamp));
@@ -115,7 +116,7 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
           } else if (entry.symbol === "ETH") {
             ethLabels.push(timeLabel);
             ethData.push(parseFloat(entry.price));
-          } else if (entry.symbol === "DOGE") {
+          } else if (entry.symbol === "DOGE") {     // examen
             dogeLabels.push(timeLabel);
             dogeData.push(parseFloat(entry.price));
           }
@@ -144,7 +145,8 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
             },
           ],
         });
-          setDogeChartData({
+
+          setDogeChartData({          // examen
           labels: dogeLabels.slice(-MAX_POINTS),
           datasets: [
             {
@@ -218,7 +220,7 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
       });
     }
 
-    if (prices.DOGE) {
+    if (prices.DOGE) {        // examen
       setDogeChartData((prevData) => {
         if (prevData.labels[prevData.labels.length - 1] === now) return prevData;
 
@@ -235,7 +237,7 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
           datasets: [
             {
               ...prevData.datasets[0],
-              label: `DOGE Price (${unit})`,
+              label: `DOGE Price (${unit})`,  
               data: newData,
             },
           ],
@@ -252,7 +254,7 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
       <h2>Live ETH Price Chart ({unit})</h2>
       <Line data={ethChartData} />
             
-      <h2>Live DOGE Price Chart ({unit})</h2>
+      <h2>Live DOGE Price Chart ({unit})</h2>   {/* examen */}
       <Line data={dogeChartData} />
     </div>
   );
