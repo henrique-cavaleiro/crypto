@@ -7,9 +7,11 @@ const Portfolio = () => {
   const [portfolio, setPortfolio] = useState([
     { symbol: "BTC", amount: 0.1 },
     { symbol: "ETH", amount: 2 },
+    { symbol: "DOGE", amount: 0.5 },
+    
   ]);
 
-  const [prices, setPrices] = useState({ BTC: 0, ETH: 0 });
+  const [prices, setPrices] = useState({ BTC: 0, ETH: 0, DOGE: 0 });
 
   useEffect(() => {
     const fetchPrices = async () => {
