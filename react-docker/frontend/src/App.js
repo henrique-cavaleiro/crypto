@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import CryptoChart from "./components/CryptoChart";
 import Portfolio from "./components/Portfolio";
-import Examen from "./components/examen";
+import Examen from "./components/examen-voorbereiding";
 
 function App() {
     const [prices, setPrices] = useState({ BTC: null, ETH: null, DOGE: null });
@@ -38,7 +38,7 @@ function App() {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/portfolio">Portfolio</Link></li>
-                    <li><Link to="/examen">Examen</Link></li>
+                    <li><Link to="/examen-voorbereiding">Examen</Link></li>
                 </ul>
             </nav>
 
@@ -77,7 +77,7 @@ function App() {
                     </div>
                 } />
                 <Route path="/portfolio" element={<Portfolio prices={prices} />} />
-                <Route path="/examen" element={<Examen prices={prices.BTC} />} />
+                <Route path="/examen-voorbereiding" element={<Examen prices={prices.BTC} />} />
             </Routes>
         </Router>
     );
