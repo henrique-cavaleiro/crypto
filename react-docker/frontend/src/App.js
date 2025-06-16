@@ -63,7 +63,8 @@ function App() {
 
                         <p>Bitcoin (BTC): {prices.BTC ? `${currencyIcon}${prices.BTC}` : "Loading..."}</p>
                         <p>Ethereum (ETH): {prices.ETH ? `${currencyIcon}${prices.ETH}` : "Loading..."}</p>
-                        <p>Doge (DOGE): {prices.DOGE ? `${currencyIcon}${prices.DOGE}` : "Loading..."}</p>
+                        <p>Doge (DOGE): {prices.DOGE ? `${currencyIcon}${prices.DOGE}` : "Loading..."}</p>  {/* examen */}
+
                         <label>
                         Update Interval:
                         <select value={refreshRate} onChange={e => setRefreshRate(Number(e.target.value))}>
