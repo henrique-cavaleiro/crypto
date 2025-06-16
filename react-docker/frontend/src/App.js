@@ -7,7 +7,7 @@ import Portfolio from "./components/Portfolio";
 import Examen from "./components/examen";
 
 function App() {
-    const [prices, setPrices] = useState({ BTC: null, ETH: null });
+    const [prices, setPrices] = useState({ BTC: null, ETH: null, DOGE: null });
     const [refreshRate, setRefreshRate] = useState(1000); // default 1s
     const [currency, setCurrency] = useState("EUR");
     const [currencyIcon, setIcon] = useState("€");
@@ -63,6 +63,7 @@ function App() {
 
                         <p>Bitcoin (BTC): {prices.BTC ? `${currencyIcon}${prices.BTC}` : "Loading..."}</p>
                         <p>Ethereum (ETH): {prices.ETH ? `${currencyIcon}${prices.ETH}` : "Loading..."}</p>
+                        <p>Doge (DOGE): {prices.DOGE ? `${currencyIcon}${prices.DOGE}` : "Loading..."}</p>
                         <label>
                         Update Interval:
                         <select value={refreshRate} onChange={e => setRefreshRate(Number(e.target.value))}>
@@ -72,47 +73,14 @@ function App() {
                             <option value={100000}>100s</option>
                         </select>
                         </label>
-                        <Examen />
                         <CryptoChart prices={prices} currency={currency} refreshRate={refreshRate} />
                     </div>
                 } />
                 <Route path="/portfolio" element={<Portfolio prices={prices} />} />
+                <Route path="/examen" element={<Examen prices={prices.BTC} />} />
             </Routes>
         </Router>
     );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
