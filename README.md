@@ -10,6 +10,7 @@ Deze applicatie toont een **Hello World** van zowel de frontend als de backend e
 * **Backend**: Express.js + Node.js
 * **Database**: PostgreSQL (voor uitbreiding)
 * **Docker & Docker Compose** voor containerisatie en netwerkbeheer
+* **Macvlan** voor de ip addressen te verdelen (Optioneel)
 
 ## 3. **Installatie**
 
@@ -73,6 +74,8 @@ docker-compose up -d
 
   * **Hello World route**: [http://IP-BACKEND:3500/api/hello](http://IP-BACKEND:3500/api/hello)
   * **Realtime BTC prijs**: [http://IP-BACKEND:3500/api/btc](http://IP-BACKEND:3500/api/btc)
+  * **Realtime crypto prijzen**: [http://IP-BACKEND:3500/api/prices](http://IP-BACKEND:3500/api/prices)
+  * **geschiedenis crypto prijzen**: [http://IP-BACKEND:3500/api/history](http://IP-BACKEND:3500/api/history)
 
 ## 4. **Structuur van de Applicatie**
 
