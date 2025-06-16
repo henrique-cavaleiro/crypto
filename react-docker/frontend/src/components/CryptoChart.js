@@ -45,6 +45,18 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
     ],
   });
 
+  const [dogeChartData, setDogeChartData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: `DOGE Price (${unit})`,
+        data: [],
+        borderColor: "yellow",
+        fill: false,
+      },
+    ],
+  });
+
   // Load historical data
   useEffect(() => {
     const fetchHistory = async () => {
@@ -74,6 +86,17 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
           ],
         });
 
+        setDogeChartData({
+          labels: [],
+          datasets: [
+            {
+              label: `DOGE Price (${unit})`,
+              data: [],
+              borderColor: "yellow",
+              fill: false,
+            },
+          ],
+        });
         const res = await fetch(`http://192.168.5.186:3500/api/history?currency=${currency}`);
         const data = await res.json();
 
@@ -81,6 +104,8 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
         const btcData = [];
         const ethLabels = [];
         const ethData = [];
+        const dogeLabels = [];
+        const dogeData = [];
 
         data.reverse().forEach((entry) => {
           const timeLabel = formatTime(new Date(entry.timestamp));
@@ -90,6 +115,9 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
           } else if (entry.symbol === "ETH") {
             ethLabels.push(timeLabel);
             ethData.push(parseFloat(entry.price));
+          } else if (entry.symbol === "DOGE") {
+            dogeLabels.push(timeLabel);
+            dogeData.push(parseFloat(entry.price));
           }
         });
 
@@ -116,6 +144,18 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
             },
           ],
         });
+          setDogeChartData({
+          labels: dogeLabels.slice(-MAX_POINTS),
+          datasets: [
+            {
+              label: `DOGE Price (${unit})`,
+              data: dogeData.slice(-MAX_POINTS),
+              borderColor: "yellow",
+              fill: false,
+            },
+          ],
+        });
+
       } catch (err) {
         console.error("Error loading history:", err);
       }
@@ -177,6 +217,31 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
         };
       });
     }
+
+    if (prices.DOGE) {
+      setDogeChartData((prevData) => {
+        if (prevData.labels[prevData.labels.length - 1] === now) return prevData;
+
+        const newLabels = [...prevData.labels, now];
+        const newData = [...prevData.datasets[0].data, prices.DOGE];
+
+        if (newLabels.length > MAX_POINTS) {
+          newLabels.shift();
+          newData.shift();
+        }
+
+        return {
+          labels: newLabels,
+          datasets: [
+            {
+              ...prevData.datasets[0],
+              label: `DOGE Price (${unit})`,
+              data: newData,
+            },
+          ],
+        };
+      });
+    }
   }, [prices]);
 
   return (
@@ -186,6 +251,9 @@ const CryptoChart = ({ prices, currency, refreshRate }) => {
 
       <h2>Live ETH Price Chart ({unit})</h2>
       <Line data={ethChartData} />
+            
+      <h2>Live DOGE Price Chart ({unit})</h2>
+      <Line data={dogeChartData} />
     </div>
   );
 };
