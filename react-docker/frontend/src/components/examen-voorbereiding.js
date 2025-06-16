@@ -7,13 +7,13 @@ function Examen() {
 
   useEffect(() => {
     // Haal "Hello from backend" op
-    fetch('/api/hello')
+    fetch('http://192.168.5.186:3500/api/hello')
       .then(res => res.text())
       .then(text => setMessage(text));
 
     // Haal BTC-prijs op en herhaal 
     const fetchBtcPrice = () => {
-      fetch('/api/btc')
+      fetch('http://192.168.5.186:3500/api/btc')
         .then(res => res.json())
         .then(data => setBtcPrice(data.price));
     };
