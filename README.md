@@ -2,7 +2,7 @@
 
 ## 1. **Beschrijving**
 
-Deze applicatie toont een **Hello World** van zowel de frontend als de backend en geeft de **realtime prijs van Bitcoin (BTC/USD)** via de **Coinbase API**. De applicatie maakt gebruik van **React.js** voor de frontend, **Express.js** voor de backend, en **PostgreSQL** voor de database (voor toekomstige uitbreiding). Het project draait binnen **Docker**-containers met behulp van **Docker Compose**.
+Deze applicatie toont een **Hello World** van zowel de frontend als de backend en geeft de **realtime prijs van Bitcoin (BTC) en andere Crypto coins(ETH,DOGE)** via de **Coinbase API**. De applicatie maakt gebruik van **React.js** voor de frontend, **Express.js** voor de backend, en **PostgreSQL**. Het project draait binnen **Docker**-containers met behulp van **Docker Compose**.
 
 ## 2. **Technologieën**
 
