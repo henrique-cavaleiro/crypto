@@ -28,8 +28,8 @@ app.get("/api/prices", async (req, res) => {
 
         // Ensure lookup values exist
         await pool.query(
-            `INSERT INTO symbols (code) VALUES ($1), ($2) ON CONFLICT DO NOTHING`,
-            ['BTC', 'ETH']
+            `INSERT INTO symbols (code) VALUES ($1), ($2), ($3)  ON CONFLICT DO NOTHING`,
+            ['BTC', 'ETH', 'DOGE']
         );
         await pool.query(
             `INSERT INTO currencies (code) VALUES ($1) ON CONFLICT DO NOTHING`,
@@ -41,8 +41,9 @@ app.get("/api/prices", async (req, res) => {
             INSERT INTO crypto_prices (symbol_code, currency_code, price, timestamp)
             VALUES 
                 ('BTC', $1, $2, NOW()),
-                ('ETH', $1, $3, NOW())
-        `, [currency, prices.BTC, prices.ETH]);
+                ('ETH', $1, $3, NOW()),
+                ('DOGE', $1, $4, NOW())
+        `, [currency, prices.BTC, prices.ETH, prices.DOGE]);
 
         res.json(prices);
     } catch (error) {
@@ -61,7 +62,7 @@ app.get("/api/history", async (req, res) => {
             FROM crypto_prices
             WHERE currency_code = $1
             ORDER BY timestamp DESC
-            LIMIT 50
+            LIMIT 90
         `, [currency]);
 
         res.json(rows);
